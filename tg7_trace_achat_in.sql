@@ -1,0 +1,24 @@
+-- CREATE OR REPLACE TRIGGER tg_audit_achat_vin_trace
+-- AFTER INSERT ON Achat
+-- FOR EACH ROW
+-- DECLARE
+--   nom_client VARCHAR2(30);
+--   nom_vin VARCHAR2(30);
+--   nom_region_vin VARCHAR2(20);
+--   appellation VARCHAR2(30);
+--   quantite_commandee INTEGER;
+--   date_achat DATE;
+-- BEGIN
+--   SELECT c.nom, v.nom, r.nom, v.appellation, :new.quantite, :new.dateachat
+--   INTO nom_client, nom_vin, nom_region_vin, appellation, quantite_commandee, date_achat
+--   FROM Client c, Article a, Vin v, Region r
+--   WHERE c.idclient = :new.client
+--     AND a.idarticle = :new.article
+--     AND v.idvin = a.vin
+--     AND r.idregion = v.provenance;
+    
+--   INSERT INTO AUDIT_ACHAT_VIN
+--   VALUES (nom_client, nom_vin, nom_region_vin, appellation, quantite_commandee, date_achat);
+-- END;
+
+-- INSERT INTO ACHAT (idachat, article, client, dateachat, quantite, ristourne) VALUES (6, 95, 20, SYSDATE, 1, 7);
